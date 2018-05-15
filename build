@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+echo "### Login to docker..."
+docker login --username=mauriciojost
+
+echo "### Build..."
+docker build -t mauriciojost/scala .
+
+echo "### Push..."
+docker push mauriciojost/scala
+
+echo "### Done."
