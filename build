@@ -4,9 +4,9 @@ echo "### Login to docker..."
 docker login --username=mauriciojost
 
 echo "### Build..."
-docker build -t mauriciojost/scala .
+docker build -t mauriciojost/arduino-ci .
 
 echo "### Push..."
-docker push mauriciojost/scala
+docker push mauriciojost/arduino-ci
 
 echo "### Done."

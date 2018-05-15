@@ -1,6 +1,6 @@
 # README
 
-Basic docker image to build platformio / arduino projects.
+Docker image & Jenkinsfile for Arduino projects
 
 Thought to be used via pipelines in Jenkins.
 
