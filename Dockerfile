@@ -1,7 +1,12 @@
-#Download base image ubuntu 16.04
-FROM pitkley/platformio
+FROM python:2.7
+
+RUN pip install -U platformio==3.5.1
 
 COPY sources.list /etc/apt/sources.list
+
+ENV HOME /root/
+
+RUN chmod 777 /root/
  
 #RUN apt-get update; exit 0
  
