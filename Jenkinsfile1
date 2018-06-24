@@ -1,0 +1,15 @@
+// https://jenkins.io/doc/book/pipeline/jenkinsfile/
+// Scripted pipeline (not declarative)
+pipeline {
+  agent any
+  stages {
+    stage('Build') {
+      steps {
+	echo "My branch is: ${env.BRANCH_NAME}"
+        sh "docker login -u ${DOCKER_PRIVATE_USR} -p ${DOCKER_PRIVATE_PSW} ${PRIVATE_REGISTRY}"
+        sh './build'
+      }
+    }
+  }
+}
+

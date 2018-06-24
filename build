@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
 
+set -e 
+set -x 
+
 echo "### Run as sudo!!!"
 
-echo "### Login to docker..."
-docker login --username=mauriciojost
+echo "### Login to docker!!!"
+echo " use: docker login --username=mauriciojost"
 
 echo "### Build..."
 docker build -t mauriciojost/arduino-ci:`cat version.txt` .
