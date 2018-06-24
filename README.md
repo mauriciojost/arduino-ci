@@ -4,16 +4,22 @@ Docker image & Jenkinsfile for Arduino projects
 
 Thought to be used via pipelines in Jenkins.
 
-To build, install:
+To build, set up a jenkins instance and create a Jenkinsfile pipeline. 
+
+Remember to create credentials containing the docker user and password and name it `docker_pass`.
+
+## Manual build 
+
+Install:
 
 ```
 sudo apt-get install docker-ce
 ```
 
-Then launch (don't forget the sudo):
+Then :
 
 ```
-sudo ./build
+sudo docker login --username=mauriciojost"
+sudo docker build -t mauriciojost/arduino-ci:`cat version.txt` .
+sudo docker push mauriciojost/arduino-ci # account at docker.com needed to publish
 ```
-
-(you will need an account at `docker.com` to publish your image).
