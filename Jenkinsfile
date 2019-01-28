@@ -1,6 +1,10 @@
 // https://getintodevops.com/blog/building-your-first-docker-image-with-jenkins-2-guide-for-developers
 node {
 
+  properties([
+    buildDiscarder(logRotator(numToKeepStr: '10')),
+  ])
+
   def customImage
   def platformioVersion
 
