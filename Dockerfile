@@ -1,6 +1,7 @@
 FROM python:2.7
 
 RUN pip install -U platformio==3.5.3
+RUN pip install -U gcovr==4.1
 
 COPY sources.list /etc/apt/sources.list
 
