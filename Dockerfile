@@ -1,5 +1,8 @@
 FROM python:2.7
 
+RUN apt-get update
+RUN apt-get install jq
+
 RUN pip install -U platformio==3.5.3
 RUN pip install -U gcovr==4.1
 
