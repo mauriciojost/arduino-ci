@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+set -e
+set -x 
+set -u 
+
+settings="${1:-settings.conf}"
+
+source "$settings"
+echo python-$python-platformio-$platformio-gcovr-$gcovr | sed 's#:#_#g' > version.txt
+sed "s#PYTHON_DOCKER_BASE_HERE#$python#g; s#PLATFORMIO_VERSION_HERE#$platformio#g; s#GCOVR_VERSION_HERE#$gcovr#g" Dockerfile.template > Dockerfile
+
+echo "### Login to docker..."
+docker login --username="$USERNAME" --password="$PASSWORD"
+
+echo "### Build..."
+docker build -t `cat imagename.txt`:`cat version.txt` .
+
+echo "### Push..."
+docker push  `cat imagename.txt` # account at docker.com needed to publish
+
+echo "### Done."
